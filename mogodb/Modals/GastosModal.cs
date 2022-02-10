@@ -7,6 +7,5 @@ namespace mogodb.Modals
 {
     public class GastosModal
     {
-        public string 
     }
 }
