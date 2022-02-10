@@ -5,7 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
-using mogodb.Data.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,12 +26,6 @@ namespace mogodb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            // mongo
-            services.Configure<MongoSetting>(
-                Configuration.GetSection(nameof(MongoSetting)));
-
-            services.AddSingleton<IMongoSetting>(sp =>
-            sp.GetRequiredService<IOptions<MongoSetting>>().Value);
         }
 
 

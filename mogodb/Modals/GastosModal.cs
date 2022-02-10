@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace mogodb.Entities
+namespace mogodb.Modals
 {
-    public class GastosClass
+    public class GastosModal
     {
+        public string 
     }
 }
