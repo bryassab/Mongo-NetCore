@@ -20,26 +20,30 @@ namespace mogodb.Repositories
         public async Task DeleteGasto(string id)
         {
             var filter = Builders<GastosModal>.Filter.Eq(x => x.Id, new ObjectId(id));
+            await Collection.DeleteOneAsync(filter);
         }
 
-        public Task<List<GastosModal>> GetallGastos()
+        public async Task<List<GastosModal>> GetAllGastos()
         {
-            throw new NotImplementedException();
+            return await Collection.FindAsync(new BsonDocument()).Result.ToListAsync();
         }
 
-        public Task<GastosModal> GetGastoById(string id)
+        public async Task<GastosModal> GetGastoById(string id)
         {
-            throw new NotImplementedException();
+            return await Collection.FindAsync(
+                new BsonDocument { { "_id", new ObjectId(id) } }).Result.FirstAsync();
         }
 
-        public Task InsertGasto(GastosModal gasto)
+        public async Task InsertGasto(GastosModal gasto)
         {
-            throw new NotImplementedException();
+            await Collection.InsertOneAsync(gasto);
         }
 
-        public Task UpdateGasto(GastosModal gasto)
+        public async Task UpdateGasto(GastosModal gasto)
         {
-            throw new NotImplementedException();
+            var filter = Builders<GastosModal>.Filter.Eq(x => x.Id, gasto.Id);
+
+            await Collection.ReplaceOneAsync(filter,gasto);
         }
     }
 }

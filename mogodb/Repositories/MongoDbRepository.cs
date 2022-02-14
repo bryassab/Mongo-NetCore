@@ -14,7 +14,7 @@ namespace mogodb.Repositories
 
         public MongoDbRepository()
         {
-            Client = new MongoClient("mongodb://127.0.0.1:27017");
+            Client = new MongoClient("mongodb://localhost:27017");
 
             db = Client.GetDatabase("Viaje");
         }

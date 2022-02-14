@@ -12,7 +12,7 @@ namespace mogodb.Repositories
         Task InsertGasto(GastosModal gasto);
         Task UpdateGasto(GastosModal gasto);
         Task DeleteGasto(string id);
-        Task<List<GastosModal>> GetallGastos();
+        Task<List<GastosModal>> GetAllGastos();
         Task<GastosModal> GetGastoById(string id);
     }
 }
